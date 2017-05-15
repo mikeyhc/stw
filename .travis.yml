@@ -7,3 +7,7 @@ install:
 script:
     - ./rebar3 version
     - ./rebar3 as test do dialyzer, xref, ct, cover, coveralls send
+notifications:
+    email:
+        recipients:
+            - mikeyhc@atmosia.net
