@@ -28,8 +28,18 @@ init_per_suite(Config)  ->
 
 end_per_suite(_Config) ->
     stw:destroy_cluster([node()]),
+    application:stop(stw),
     application:stop(mnesia).
 
 add_entry(_Config) ->
-    ok = stw:add_entry(?TEST_ENTRY),
-    {error, already_exists} = stw:add_entry(?TEST_ENTRY).
+    Entry = ?TEST_ENTRY,
+    ok = stw:add_entry(Entry#stw_entry.title,
+                       Entry#stw_entry.date,
+                       Entry#stw_entry.author,
+                       Entry#stw_entry.path),
+    {error, already_exists} = stw:add_entry(Entry#stw_entry.title,
+                                            Entry#stw_entry.date,
+                                            Entry#stw_entry.author,
+                                            Entry#stw_entry.path).
+
+

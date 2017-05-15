@@ -7,24 +7,34 @@
 
 -include("stw_types.hrl").
 
--export([create_cluster/1, destroy_cluster/1, add_entry/1]).
+-export([create_cluster/1, destroy_cluster/1, add_entry/4]).
 
 -define(SUP_REF, stw_sup).
 -define(CHILD_REF, stw_server).
 
+-spec create_cluster([node()]) -> ok.
 create_cluster(Nodes) ->
     mnesia:create_schema(Nodes),
     rpc:multicall(Nodes, application, start, [mnesia]),
     mnesia:create_table(stw_entry,
                         [{attributes, record_info(fields, stw_entry)},
                           {disc_copies, Nodes}]),
-    rpc:multicall(Nodes, application, stop, [mnesia]).
+    rpc:multicall(Nodes, application, stop, [mnesia]),
+    ok.
 
+-spec destroy_cluster([node()]) -> ok.
 destroy_cluster(Nodes) ->
     rpc:multicall(Nodes, application, stop, [mnesia]),
-    mnesia:delete_schema([Nodes]).
+    mnesia:delete_schema([Nodes]),
+    ok.
 
-add_entry(Entry) ->
+-spec add_entry(binary(), calendar:datetime(), binary(), binary()) ->
+    ok | {error, already_exists}.
+add_entry(Title, Date, Author, Path) ->
+    Entry = #stw_entry{title = Title,
+                       date = Date,
+                       author = Author,
+                       path = Path},
     stw_server:add_entry(server_pid(), Entry).
 
 %%====================================================================
