@@ -1,0 +1,24 @@
+{"1.1.0",
+[{<<"couchbeam">>,
+  {git,"https://github.com/benoitc/couchbeam",
+       {ref,"e740382618a35622e78579cdc1e0da857dda9df7"}},
+  0},
+ {<<"cowboy">>,
+  {git,"https://github.com/ninenines/cowboy",
+       {ref,"304e3efbf84bcee9e2f28480da85635800949cbe"}},
+  0},
+ {<<"cowlib">>,
+  {git,"https://github.com/ninenines/cowlib",
+       {ref,"15750e632d9886eb9bfc876ba03402464b8facb3"}},
+  1},
+ {<<"hackney">>,{pkg,<<"hackney">>,<<"1.6.4">>},1},
+ {<<"jsx">>,{pkg,<<"jsx">>,<<"2.8.0">>},1},
+ {<<"ranch">>,
+  {git,"https://github.com/ninenines/ranch",
+       {ref,"40809cd2b257a8a53bcb5588ecaa88cc5381ff5c"}},
+  1}]}.
+[
+{pkg_hash,[
+ {<<"hackney">>, <<"6363480405AE4B1D03D6233F32792F0C3CF765396CFDB7E1D07CAB3D3E41C53C">>},
+ {<<"jsx">>, <<"749BEC6D205C694AE1786D62CEA6CC45A390437E24835FD16D12D74F07097727">>}]}
+].
