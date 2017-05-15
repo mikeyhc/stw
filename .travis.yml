@@ -1,0 +1,5 @@
+language: erlang
+otp_release:
+    - 19
+script:
+    - rebar3 as test do dialyzer, xref, ct, cover, coveralls send
