@@ -7,7 +7,7 @@
 
 -include("stw_types.hrl").
 
--export([create_cluster/1, destroy_cluster/1, add_entry/4]).
+-export([create_cluster/1, destroy_cluster/1, add_entry/4, list_entries/0]).
 
 -define(SUP_REF, stw_sup).
 -define(CHILD_REF, stw_server).
@@ -36,6 +36,10 @@ add_entry(Title, Date, Author, Path) ->
                        author = Author,
                        path = Path},
     stw_server:add_entry(server_pid(), Entry).
+
+-spec list_entries() -> [map()].
+list_entries() ->
+    stw_server:list_entries(server_pid()).
 
 %%====================================================================
 %% Internal functions
