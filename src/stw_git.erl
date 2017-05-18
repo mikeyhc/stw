@@ -10,7 +10,7 @@
 -export([with_repository/2, read_entry/2]).
 
 with_repository(Path, Fun) ->
-    OldDir = file:get_cwd(),
+    {ok, OldDir} = file:get_cwd(),
     try
         file:set_cwd(Path),
         Fun()
@@ -24,8 +24,8 @@ read_git_date(File) ->
     qdate:to_date(Date).
 
 read_git_author(File) ->
-    string:strip(os:cmd(["git log --format=%aN ", File, " | tail -1"]),
-                 right, $\n).
+    Cmd = ["git log --format=%aN ", File, " | tail -1"],
+    binary:list_to_bin(string:strip(os:cmd(Cmd), right, $\n)).
 
 unwrap({ok, Value}) -> Value.
 
@@ -37,7 +37,7 @@ read_entry(Repo, Path) ->
         file:close(IODevice),
         Date = read_git_date(Path),
         Author = read_git_author(Path),
-        #stw_entry{title = Title,
+        #stw_entry{title = binary:list_to_bin(Title),
                    date = Date,
                    author = Author,
                    path = Path}

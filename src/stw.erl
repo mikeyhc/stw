@@ -26,7 +26,7 @@ create_cluster(Nodes) ->
 -spec destroy_cluster([node()]) -> ok.
 destroy_cluster(Nodes) ->
     rpc:multicall(Nodes, application, stop, [mnesia]),
-    mnesia:delete_schema([Nodes]),
+    mnesia:delete_schema(Nodes),
     ok.
 
 -spec add_entry(binary(), calendar:datetime(), binary(), binary()) ->
