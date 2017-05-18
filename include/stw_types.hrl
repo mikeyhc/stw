@@ -4,3 +4,5 @@
                     path :: binary()
                    }).
 -type stw_entry() :: #stw_entry{}.
+
+-type stw_path() :: file:name_all() | iolist().

@@ -1,8 +1,11 @@
 {application, stw,
- [{description, "An OTP application"},
+ [{description, "A simple blogging application"},
   {vsn, "0.1.0"},
-  {registered, []},
-  {mod, { stw_app, []}},
+  {registered,
+   [stw_app,
+    stw_sup
+   ]},
+  {mod, {stw_app, []}},
   {applications,
    [kernel,
     stdlib,
@@ -10,7 +13,12 @@
     cowboy
    ]},
   {env,[]},
-  {modules, []},
+  {modules,
+   [stw,
+    stw_app,
+    stw_sup,
+    stw_server
+   ]},
 
   {maintainers, []},
   {licenses, []},
