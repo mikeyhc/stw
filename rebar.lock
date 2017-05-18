@@ -1,5 +1,6 @@
 {"1.1.0",
-[{<<"couchbeam">>,
+[{<<"cf">>,{pkg,<<"cf">>,<<"0.2.2">>},2},
+ {<<"couchbeam">>,
   {git,"https://github.com/benoitc/couchbeam",
        {ref,"e740382618a35622e78579cdc1e0da857dda9df7"}},
   0},
@@ -11,14 +12,27 @@
   {git,"https://github.com/ninenines/cowlib",
        {ref,"15750e632d9886eb9bfc876ba03402464b8facb3"}},
   1},
+ {<<"erlware_commons">>,{pkg,<<"erlware_commons">>,<<"1.0.0">>},1},
  {<<"hackney">>,{pkg,<<"hackney">>,<<"1.6.4">>},1},
+ {<<"jiffy">>,
+  {git,"https://github.com/davisp/jiffy",
+       {ref,"a13b9e1ec9849a3bc385fdbd42d5de63c6681bf5"}},
+  0},
  {<<"jsx">>,{pkg,<<"jsx">>,<<"2.8.0">>},1},
+ {<<"qdate">>,
+  {git,"https://github.com/choptastic/qdate",
+       {ref,"fc247e296b0aeb201e55e27ae809689ea094a2cb"}},
+  0},
+ {<<"qdate_localtime">>,{pkg,<<"qdate_localtime">>,<<"1.1.0">>},1},
  {<<"ranch">>,
   {git,"https://github.com/ninenines/ranch",
        {ref,"40809cd2b257a8a53bcb5588ecaa88cc5381ff5c"}},
   1}]}.
 [
 {pkg_hash,[
+ {<<"cf">>, <<"7F2913FFF90ABCABD0F489896CFEB0B0674F6C8DF6C10B17A83175448029896C">>},
+ {<<"erlware_commons">>, <<"087467DE5833C0BB5B3CCDD387F9E9C1FB816A75B7A709629BF24B5ED3246C51">>},
  {<<"hackney">>, <<"6363480405AE4B1D03D6233F32792F0C3CF765396CFDB7E1D07CAB3D3E41C53C">>},
- {<<"jsx">>, <<"749BEC6D205C694AE1786D62CEA6CC45A390437E24835FD16D12D74F07097727">>}]}
+ {<<"jsx">>, <<"749BEC6D205C694AE1786D62CEA6CC45A390437E24835FD16D12D74F07097727">>},
+ {<<"qdate_localtime">>, <<"5F6C3ACF10ECC5A7E2EFA3DCD2C863102B962188DBD9E086EC01D29FE029DA29">>}]}
 ].

@@ -29,7 +29,7 @@ start_link() ->
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 init([]) ->
     Children = [#{id => stw_server,
-                  start =>  {stw_server, start_link, []}
+                  start => {stw_server, start_link, []}
                  }],
     % TODO: work out a suitable supervisor configuration
     {ok, {{one_for_all, 0, 1}, Children}}.
