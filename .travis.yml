@@ -9,6 +9,7 @@ script:
     - ./rebar3 as test dialyzer, xref, ct, cover, coveralls send
     - ./rebar3 release
     - ./_build/default/rel/stw/bin/stw start
+    - sleep 10
     - ./_build/default/rel/stw/bin/stw stop
 notifications:
     email:
